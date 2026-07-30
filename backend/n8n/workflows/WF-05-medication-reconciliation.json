@@ -1,0 +1,32 @@
+{
+  "name": "WF-05 Medication Reconciliation",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "2cf3d985-b3f8-412a-b09a-1c35e7bca105",
+      "name": "Called by WF-01",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if (!$json.patient_id || !Array.isArray($json.medications)) throw new Error('INVALID_RECONCILIATION_CONTRACT');\nreturn [{ json: { ...$json, prompt_version: 'medication-reconciler/v1', deterministic_rules_package: '@chartharbor/backend', candidate_status: 'awaiting_rules' } }];"
+      },
+      "id": "2db14129-f0ba-4432-bd1b-26d438b7df05",
+      "name": "Prepare Reconciliation",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-01": {
+      "main": [[{ "node": "Prepare Reconciliation", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

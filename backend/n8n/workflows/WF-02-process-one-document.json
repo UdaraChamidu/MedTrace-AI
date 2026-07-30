@@ -1,0 +1,32 @@
+{
+  "name": "WF-02 Process One Document",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "90f87113-554c-426b-97e8-f58b8a68a102",
+      "name": "Called by WF-01",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const required = ['patient_id','job_id','document_id','correlation_id'];\nfor (const key of required) if (!$json[key]) throw new Error(`MISSING_${key.toUpperCase()}`);\nreturn [{ json: { ...$json, status: 'queued_for_download', prompt_version: 'clinical-extractor/v1', max_schema_retries: 1 } }];"
+      },
+      "id": "43744c23-f31a-4833-9b19-68d9aa8ac602",
+      "name": "Prepare Document Contract",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-01": {
+      "main": [[{ "node": "Prepare Document Contract", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

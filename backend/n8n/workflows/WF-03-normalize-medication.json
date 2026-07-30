@@ -1,0 +1,32 @@
+{
+  "name": "WF-03 Normalize Medication",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "c66c6738-88fa-4643-9c95-2cb211072003",
+      "name": "Called by WF-02",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if (!$json.original_name || !$json.patient_id) throw new Error('INVALID_MEDICATION_CONTRACT');\nconst query = String($json.original_name).replace(/\\b\\d+(?:\\.\\d+)?\\s*(?:mg|mcg|g|ml)\\b/gi, '').trim();\nreturn [{ json: { ...$json, rxnorm_query: query, normalization_status: 'pending_rxnorm', normalized_name: null, normalized_ingredient: null, rxcui: null } }];"
+      },
+      "id": "8e6da038-ebc8-44dd-ad85-ab7801fdc303",
+      "name": "Prepare RxNorm Query",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-02": {
+      "main": [[{ "node": "Prepare RxNorm Query", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

@@ -1,0 +1,32 @@
+{
+  "name": "WF-99 Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "45316439-97bb-4b98-a988-d556acb44e99",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const execution = $json.execution ?? {};\nconst workflow = $json.workflow ?? {};\nconst raw = String(execution.error?.message ?? 'workflow failed');\nconst safe = raw.replace(/(?:Bearer\\s+)?[A-Za-z0-9_-]{20,}/g, '[REDACTED]').slice(0, 500);\nreturn [{ json: { workflow: workflow.name ?? 'unknown', node_name: execution.lastNodeExecuted ?? null, error_code: execution.error?.name ?? 'WORKFLOW_ERROR', retryable: /timeout|429|5\\d\\d/i.test(raw), retry_count: 0, payload_safe: { message: safe }, correlation_id: execution.id ?? null } }];"
+      },
+      "id": "9339288b-af4a-4ec3-a705-cfc1af01c199",
+      "name": "Sanitize Failure",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [[{ "node": "Sanitize Failure", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

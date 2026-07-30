@@ -1,0 +1,32 @@
+{
+  "name": "WF-07 Safety Rules",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "7c3a6c8f-b824-40df-b723-d7677eb30407",
+      "name": "Called by WF-01",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if (!$json.patient_id || !Array.isArray($json.candidate_findings)) throw new Error('INVALID_SAFETY_RULE_CONTRACT');\nfor (const finding of $json.candidate_findings) if (finding.requiresEvidenceVerification !== true || !finding.ruleId) throw new Error('UNANCHORED_CANDIDATE');\nreturn [{ json: { ...$json, candidate_findings: $json.candidate_findings, next_workflow: 'WF-08 Evidence Verification' } }];"
+      },
+      "id": "b70e0f30-aaeb-43e1-b0aa-d0518223b207",
+      "name": "Validate Deterministic Candidates",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-01": {
+      "main": [[{ "node": "Validate Deterministic Candidates", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

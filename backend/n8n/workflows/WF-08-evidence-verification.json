@@ -1,0 +1,32 @@
+{
+  "name": "WF-08 Evidence Verification",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "9a973adf-8382-455f-aa67-1ebf8ed39d08",
+      "name": "Called by WF-07",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if (!$json.patient_id || !$json.candidate || !Array.isArray($json.page_evidence)) throw new Error('INVALID_VERIFIER_CONTRACT');\nreturn [{ json: { ...$json, prompt_version: 'evidence-verifier/v1', allowed_verdicts: ['supported','partially_supported','contradicted','insufficient'], citation_validation_required: true } }];"
+      },
+      "id": "92663411-3d68-44fc-9c24-3756549e3608",
+      "name": "Prepare Evidence Gate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-07": {
+      "main": [[{ "node": "Prepare Evidence Gate", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

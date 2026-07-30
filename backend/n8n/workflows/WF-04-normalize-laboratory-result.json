@@ -1,0 +1,32 @@
+{
+  "name": "WF-04 Normalize Laboratory Result",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "4e10e31c-2276-4140-b95d-083900069004",
+      "name": "Called by WF-02",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if (!$json.test_name || !$json.patient_id) throw new Error('INVALID_LAB_CONTRACT');\nconst hasValue = $json.value_numeric !== null || ($json.value_text ?? '').length > 0;\nif (!hasValue) throw new Error('LAB_VALUE_REQUIRED');\nreturn [{ json: { ...$json, normalized_value: null, normalized_unit: null, conversion_status: 'not_applied', comparison_eligible: Boolean($json.unit) } }];"
+      },
+      "id": "92975d76-0176-4a3f-8a8b-662195589304",
+      "name": "Guard Lab Value",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-02": {
+      "main": [[{ "node": "Guard Lab Value", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

@@ -1,0 +1,31 @@
+# Dependencies and builds
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+
+# Environment and credentials
+.env
+.env.*
+!.env.example
+frontend/.env.local
+backend/.env.local
+
+# Supabase / n8n local state
+.supabase/
+backend/supabase/.temp/
+backend/n8n/.credentials/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Medical data and generated artifacts
+private-fixtures/
+uploads/
+*.log
+
+project_docs/

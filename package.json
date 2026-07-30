@@ -1,0 +1,23 @@
+{
+  "name": "chartharbor-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-linked medical record intelligence for the YGC AI Competition 2026.",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm --workspace frontend run dev",
+    "build": "npm --workspace backend run build && npm --workspace frontend run build",
+    "typecheck": "npm --workspaces --if-present run typecheck",
+    "test": "npm --workspaces --if-present run test",
+    "test:e2e": "npm --workspace frontend run test:e2e",
+    "lint": "npm --workspaces --if-present run lint",
+    "check": "npm run typecheck && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@11.12.1"
+}

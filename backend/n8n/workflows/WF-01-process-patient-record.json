@@ -1,0 +1,53 @@
+{
+  "name": "WF-01 Process Patient Record",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "process-records",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "85ed441d-b131-4cd6-8878-b0e071646601",
+      "name": "Process Records Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-360, 0],
+      "webhookId": "chartharbor-process-records"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body ?? $json;\nconst uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;\nif (!uuid.test(body.patient_id ?? '') || !uuid.test(body.job_id ?? '')) throw new Error('INVALID_CONTRACT');\nif (!Array.isArray(body.document_ids) || !body.document_ids.every((id) => uuid.test(id))) throw new Error('INVALID_DOCUMENT_IDS');\nreturn [{ json: { accepted: true, job_id: body.job_id, status: 'queued', patient_id: body.patient_id, document_ids: body.document_ids } }];"
+      },
+      "id": "bb98efc1-d7ab-44fd-9ab2-33adee1e7201",
+      "name": "Validate Contract",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-120, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { accepted: true, job_id: $json.job_id, status: 'queued' } }}",
+        "options": { "responseCode": 202 }
+      },
+      "id": "f36ab765-655e-4f42-9348-9ab751339901",
+      "name": "Return 202",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [120, 0]
+    }
+  ],
+  "connections": {
+    "Process Records Webhook": {
+      "main": [[{ "node": "Validate Contract", "type": "main", "index": 0 }]]
+    },
+    "Validate Contract": {
+      "main": [[{ "node": "Return 202", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

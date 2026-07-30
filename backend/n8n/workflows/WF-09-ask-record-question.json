@@ -1,0 +1,53 @@
+{
+  "name": "WF-09 Ask Record Question",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ask-record",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "f7ad8764-5e27-4228-81cd-608c2315c009",
+      "name": "Ask Record Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-360, 0],
+      "webhookId": "chartharbor-ask-record"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $json.body ?? $json;\nif (!body.patient_id || !body.thread_id || typeof body.question !== 'string' || body.question.trim().length === 0) throw new Error('INVALID_QUESTION_CONTRACT');\nreturn [{ json: { answer: 'The uploaded record does not contain enough verified evidence to answer this question.', answer_status: 'insufficient', risk_level: 'informational', confidence: 0, citations: [], safety_message: 'This application does not provide a diagnosis. Do not start, stop, or change medication based on this result. Please verify high-risk or uncertain findings with a doctor or pharmacist.', patient_id: body.patient_id, thread_id: body.thread_id, prompt_version: 'qa-agent/v1' } }];"
+      },
+      "id": "1270c2d6-f3cc-49d0-b8f2-374162ece409",
+      "name": "Safe Insufficient Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-120, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": { "responseCode": 200 }
+      },
+      "id": "88e7cb5b-442a-4271-9da6-593612a84709",
+      "name": "Return Grounded Answer",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [120, 0]
+    }
+  ],
+  "connections": {
+    "Ask Record Webhook": {
+      "main": [[{ "node": "Safe Insufficient Response", "type": "main", "index": 0 }]]
+    },
+    "Safe Insufficient Response": {
+      "main": [[{ "node": "Return Grounded Answer", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}

@@ -1,0 +1,17 @@
+{
+  "fixture_version": "synthetic-demo/v1",
+  "synthetic": true,
+  "notice": "Synthetic demonstration data for ChartHarbor AI; not taken from the competition image set.",
+  "patient_id": "00000000-0000-4000-8000-000000000001",
+  "expected_candidate_types": [
+    "duplicate_medication",
+    "dosage_conflict",
+    "allergy_contradiction",
+    "drug_interaction"
+  ],
+  "safety_messages": [
+    "This application does not provide a diagnosis.",
+    "Do not start, stop, or change medication based on this result.",
+    "Please verify high-risk or uncertain findings with a doctor or pharmacist."
+  ]
+}

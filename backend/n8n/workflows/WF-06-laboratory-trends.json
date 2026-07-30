@@ -1,0 +1,32 @@
+{
+  "name": "WF-06 Laboratory Trends",
+  "nodes": [
+    {
+      "parameters": { "inputSource": "passthrough" },
+      "id": "bf33b48b-a3a8-4c9c-a4cb-6430c4071d06",
+      "name": "Called by WF-01",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [-240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "if (!$json.patient_id || !Array.isArray($json.lab_results)) throw new Error('INVALID_LAB_TREND_CONTRACT');\nreturn [{ json: { ...$json, prompt_version: 'lab-trend/v1', direction: $json.lab_results.length < 2 ? 'insufficient_data' : 'pending_compatible_unit_grouping' } }];"
+      },
+      "id": "c99c47fa-827f-46b0-ad4c-8733045a9906",
+      "name": "Guard Trend Inputs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    }
+  ],
+  "connections": {
+    "Called by WF-01": {
+      "main": [[{ "node": "Guard Trend Inputs", "type": "main", "index": 0 }]]
+    }
+  },
+  "pinData": {},
+  "settings": { "executionOrder": "v1" },
+  "active": false,
+  "tags": []
+}
