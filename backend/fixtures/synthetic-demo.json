@@ -1,7 +1,7 @@
 {
   "fixture_version": "synthetic-demo/v1",
   "synthetic": true,
-  "notice": "Synthetic demonstration data for ChartHarbor AI; not taken from the competition image set.",
+  "notice": "Synthetic demonstration data for MedTrace AI; not taken from the competition image set.",
   "patient_id": "00000000-0000-4000-8000-000000000001",
   "expected_candidate_types": [
     "duplicate_medication",

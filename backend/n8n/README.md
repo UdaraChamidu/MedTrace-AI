@@ -1,4 +1,4 @@
-# ChartHarbor AI n8n workflow templates
+# MedTrace AI n8n workflow templates
 
 These ten files are valid, inactive n8n workflow templates. They intentionally contain no credentials and are safe by default. They define triggers, contracts, guardrails, and safe fallback behavior; they are not production-ready until the credentialed nodes below are connected and the checklist passes.
 

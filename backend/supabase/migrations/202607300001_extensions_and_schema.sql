@@ -1,4 +1,4 @@
--- ChartHarbor AI platform schema.
+-- MedTrace AI platform schema.
 -- Every record in view. Every claim anchored.
 
 create extension if not exists pgcrypto;

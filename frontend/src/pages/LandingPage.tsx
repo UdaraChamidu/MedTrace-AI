@@ -45,7 +45,7 @@ export function LandingPage() {
               <em>Every claim anchored.</em>
             </h1>
             <p>
-              MediTrace AI brings prescriptions, lab reports, and clinical notes into one
+              MedTrace AI brings prescriptions, lab reports, and clinical notes into one
               navigable timeline—then shows the exact source behind every finding.
             </p>
             <div className="hero-actions">
@@ -181,7 +181,7 @@ export function LandingPage() {
             <p className="eyebrow">Built for careful review</p>
             <h2>Risk is not confidence.</h2>
             <p>
-              ChartHarbor presents the potential importance of a finding separately from how
+              MedTrace presents the potential importance of a finding separately from how
               strongly the uploaded evidence supports it.
             </p>
           </div>

@@ -1,8 +1,8 @@
-# ChartHarbor AI contributor guide
+# MedTrace AI contributor guide
 
 ## Product boundary
 
-ChartHarbor AI organizes and cross-checks uploaded medical records. It is not a
+MedTrace AI organizes and cross-checks uploaded medical records. It is not a
 diagnostic or prescribing system. Never add language that tells a user to start,
 stop, or change medication.
 

@@ -2,7 +2,7 @@ import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { demoRecord, starterPatients } from "./demo-data";
 import type { Patient, PatientRecord } from "../types";
 
-export interface ChartHarborAdapter {
+export interface MedTraceAdapter {
   mode: "demo" | "supabase";
   listPatients(): Promise<Patient[]>;
   getPatientRecord(patientId: string): Promise<PatientRecord | null>;
@@ -20,7 +20,7 @@ function readLocalPatients() {
   }
 }
 
-export class DemoAdapter implements ChartHarborAdapter {
+export class DemoAdapter implements MedTraceAdapter {
   mode = "demo" as const;
 
   async listPatients() {
@@ -60,7 +60,7 @@ export class DemoAdapter implements ChartHarborAdapter {
   }
 }
 
-export class SupabaseAdapter implements ChartHarborAdapter {
+export class SupabaseAdapter implements MedTraceAdapter {
   mode = "supabase" as const;
 
   constructor(private readonly client: SupabaseClient) {}
@@ -114,7 +114,7 @@ export class SupabaseAdapter implements ChartHarborAdapter {
   }
 }
 
-export function createDataAdapter(): ChartHarborAdapter {
+export function createDataAdapter(): MedTraceAdapter {
   const url = import.meta.env.VITE_SUPABASE_URL;
   const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
   const forceDemo = import.meta.env.VITE_DEMO_MODE !== "false";

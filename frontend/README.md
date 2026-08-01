@@ -1,4 +1,4 @@
-# ChartHarbor AI frontend
+# MedTrace AI frontend
 
 Polished React + TypeScript frontend for the YGC 2026 medical record cross-checker.
 
@@ -19,7 +19,7 @@ Polished React + TypeScript frontend for the YGC 2026 medical record cross-check
 - Loading, empty, error, and reconnect-safe demo states
 - Responsive layout, keyboard focus treatments, reduced-motion support, and semantic labels
 - TanStack Query data orchestration
-- `ChartHarborAdapter` boundary with demo and Supabase implementations
+- `MedTraceAdapter` boundary with demo and Supabase implementations
 
 ## Cached walkthrough disclosure
 

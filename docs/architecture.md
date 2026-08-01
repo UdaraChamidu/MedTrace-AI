@@ -1,4 +1,4 @@
-# ChartHarbor AI architecture
+# MedTrace AI architecture
 
 ## Decision
 

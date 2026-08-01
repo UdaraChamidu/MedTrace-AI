@@ -311,12 +311,12 @@ blockquote {
 .hero {
   position: relative;
   display: grid;
-  min-height: 780px;
+  min-height: 680px;
   grid-template-columns: minmax(0, 0.96fr) minmax(520px, 1.04fr);
   align-items: center;
   gap: clamp(26px, 3.4vw, 60px);
   overflow: hidden;
-  padding: 136px max(24px, 5vw) 92px;
+  padding: 125px max(24px, 5vw) 92px;
   background:
     linear-gradient(90deg, rgba(7, 27, 37, 1) 0%, rgba(7, 27, 37, 0.98) 48%, rgba(8, 38, 48, 0.98) 100%),
     radial-gradient(circle at 60% 0%, rgba(24, 143, 139, 0.2), transparent 40%);

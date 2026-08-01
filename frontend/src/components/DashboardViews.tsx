@@ -692,7 +692,7 @@ export function AskView({
             <article key={message.id} className={`chat-message chat-message-${message.role}`}>
               <span className="chat-avatar">{message.role === "assistant" ? <Bot size={18} /> : "DR"}</span>
               <div className="chat-bubble">
-                {message.role === "assistant" ? <small>ChartHarbor record assistant</small> : null}
+                {message.role === "assistant" ? <small>MedTrace record assistant</small> : null}
                 <p>{message.content}</p>
                 {message.answerStatus ? (
                   <div className="answer-meta">

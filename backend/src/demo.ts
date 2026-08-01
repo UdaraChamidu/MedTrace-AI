@@ -1,7 +1,7 @@
 import type { Allergy, Medication } from "./domain.js";
 
 export const SYNTHETIC_DEMO_NOTICE =
-  "Synthetic demonstration data for ChartHarbor AI; not taken from the competition image set.";
+  "Synthetic demonstration data for MedTrace AI; not taken from the competition image set.";
 
 const patientId = "00000000-0000-4000-8000-000000000001";
 

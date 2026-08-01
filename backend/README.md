@@ -1,8 +1,8 @@
-# ChartHarbor AI backend
+# MedTrace AI backend
 
 **Every record in view. Every claim anchored.**
 
-This directory contains the platform/backend layer for ChartHarbor AI. It deliberately does not contain Express, FastAPI, or another application server: authenticated browser access is handled by Supabase, orchestration by n8n, and deterministic review logic by this TypeScript package.
+This directory contains the platform/backend layer for MedTrace AI. It deliberately does not contain Express, FastAPI, or another application server: authenticated browser access is handled by Supabase, orchestration by n8n, and deterministic review logic by this TypeScript package.
 
 This is an information-organization and review prototype, not clinical decision support. It does not provide a diagnosis, recommend medication changes, or claim comprehensive interaction coverage.
 

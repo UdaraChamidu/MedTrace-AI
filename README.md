@@ -1,8 +1,8 @@
-# ChartHarbor AI
+# MedTrace AI
 
 **Every record in view. Every claim anchored.**
 
-ChartHarbor AI is an evidence-linked medical record intelligence platform built
+MedTrace AI is an evidence-linked medical record intelligence platform built
 for the YGC AI Competition 2026. It turns records from multiple visits and
 providers into a chronological patient view, highlights possible medication and
 allergy conflicts, explains compatible laboratory trends, and answers
