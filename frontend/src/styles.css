@@ -277,27 +277,31 @@ blockquote {
 }
 
 .landing-header {
-  position: absolute;
-  z-index: 10;
+  position: fixed;
+  z-index: 90;
   top: 0;
   left: 0;
   display: flex;
   width: 100%;
-  max-width: 1480px;
+  height: 82px;
   align-items: center;
   justify-content: space-between;
-  padding: 26px clamp(24px, 5vw, 76px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 clamp(24px, 5vw, 76px);
+  background: rgba(7, 27, 37, 0.82);
+  backdrop-filter: blur(16px);
 }
 
 .landing-header nav {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 22px;
 }
 
 .landing-header nav > a:not(.button) {
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.82rem;
+  line-height: 1;
 }
 
 .landing-header nav > a:not(.button):hover {
@@ -312,7 +316,7 @@ blockquote {
   align-items: center;
   gap: clamp(26px, 3.4vw, 60px);
   overflow: hidden;
-  padding: 122px max(24px, 5vw) 92px;
+  padding: 136px max(24px, 5vw) 92px;
   background:
     linear-gradient(90deg, rgba(7, 27, 37, 1) 0%, rgba(7, 27, 37, 0.98) 48%, rgba(8, 38, 48, 0.98) 100%),
     radial-gradient(circle at 60% 0%, rgba(24, 143, 139, 0.2), transparent 40%);
@@ -4449,8 +4453,9 @@ textarea::placeholder {
   }
 
   .landing-header {
+    height: 68px;
     gap: 12px;
-    padding: 18px 16px;
+    padding: 0 16px;
   }
 
   .landing-header nav .button-ghost-light {
