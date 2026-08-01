@@ -308,9 +308,9 @@ blockquote {
   position: relative;
   display: grid;
   min-height: 780px;
-  grid-template-columns: minmax(0, 0.86fr) minmax(560px, 1.14fr);
+  grid-template-columns: minmax(0, 0.96fr) minmax(520px, 1.04fr);
   align-items: center;
-  gap: clamp(30px, 4vw, 80px);
+  gap: clamp(26px, 3.4vw, 60px);
   overflow: hidden;
   padding: 122px max(24px, 5vw) 92px;
   background:
@@ -421,15 +421,16 @@ blockquote {
 .hero-product {
   position: relative;
   z-index: 2;
-  width: min(820px, 57vw);
-  min-width: 650px;
+  width: min(735px, 50vw);
+  min-width: 590px;
+  justify-self: start;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.17);
   border-radius: 18px;
   background: #f7f9f9;
   color: var(--ink);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.36);
-  transform: perspective(1400px) rotateY(-4deg) rotateX(1deg);
+  transform: translateX(-22px) perspective(1400px) rotateY(-4deg) rotateX(1deg);
   transform-origin: left center;
 }
 
@@ -4430,20 +4431,86 @@ textarea::placeholder {
 }
 
 @media (max-width: 680px) {
+  html,
+  .landing,
+  .hero {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .button {
+    min-width: 0;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
   .landing-header {
-    padding: 20px;
+    gap: 12px;
+    padding: 18px 16px;
   }
 
   .landing-header nav .button-ghost-light {
     display: none;
   }
 
+  .landing-header nav {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .landing-header .brand {
+    min-width: 0;
+  }
+
+  .landing-header .brand > span:last-child {
+    overflow: hidden;
+    max-width: 160px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .landing-header .button-light {
+    min-height: 36px;
+    padding-inline: 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
   .hero {
-    padding: 125px 20px 65px;
+    min-width: 0;
+    padding: 96px 16px 38px;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 14vw, 4.7rem);
+    max-width: 100%;
+    font-size: 2.36rem;
+    letter-spacing: 0;
+    line-height: 1.05;
+  }
+
+  .hero-copy > p {
+    max-width: 100%;
+    margin-top: 18px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .hero-copy {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-kicker {
+    max-width: 100%;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
+    white-space: normal;
   }
 
   .hero-actions {
@@ -4453,22 +4520,43 @@ textarea::placeholder {
 
   .hero-actions .button {
     width: 100%;
+    min-height: 48px;
+    padding-inline: 14px;
+    line-height: 1.25;
+  }
+
+  .hero-trust-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .hero-trust-row span {
+    min-width: 0;
+  }
+
+  .hero-product {
+    display: none;
   }
 
   .preview-body {
-    grid-template-columns: 70px 1fr;
+    min-height: 360px;
+    grid-template-columns: 52px 1fr;
   }
 
   .preview-sidebar {
-    padding-inline: 13px;
+    gap: 13px;
+    padding: 16px 10px;
   }
 
   .preview-nav-line {
-    width: 42px;
+    width: 30px;
   }
 
   .preview-main {
-    padding: 19px;
+    min-width: 0;
+    padding: 14px;
   }
 
   .preview-grid {
@@ -4524,12 +4612,13 @@ textarea::placeholder {
   }
 
   .app-topbar {
-    padding-inline: 14px;
+    min-height: 58px;
+    padding-inline: 12px;
   }
 
   .topbar-context {
     overflow: hidden;
-    max-width: 180px;
+    max-width: min(44vw, 170px);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
@@ -4581,6 +4670,8 @@ textarea::placeholder {
 
   .patient-title {
     align-items: flex-start;
+    width: 100%;
+    min-width: 0;
   }
 
   .patient-title-line {
@@ -4590,16 +4681,57 @@ textarea::placeholder {
   }
 
   .patient-title h1 {
-    font-size: 1.35rem;
+    font-size: 1.22rem;
+    overflow-wrap: anywhere;
+  }
+
+  .patient-avatar-large {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
   }
 
   .patient-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .patient-actions .icon-button {
+    display: none;
   }
 
   .record-content {
     padding-inline: 13px;
+  }
+
+  .record-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    overflow: visible;
+    padding: 10px 12px;
+  }
+
+  .record-tabs button {
+    min-width: 0;
+    min-height: 42px;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #dbe5e5;
+    border-radius: 10px;
+    padding-inline: 7px;
+    background: #f8fbfa;
+    font-size: 0.66rem;
+  }
+
+  .record-tabs button.active {
+    border-color: #a8d3d0;
+    background: #eaf8f6;
+  }
+
+  .record-tabs button::after {
+    display: none;
   }
 
   .metric-grid {
@@ -4624,6 +4756,14 @@ textarea::placeholder {
 
   .trace-steps {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .trace-step {
+    min-width: 0;
+  }
+
+  .trace-step > div {
+    min-width: 0;
   }
 
   .timeline-layout {
@@ -4685,15 +4825,42 @@ textarea::placeholder {
 
   .evidence-drawer {
     width: 100vw;
+    animation: none;
   }
 
   .document-stage {
-    padding: 16px;
+    padding: 12px;
   }
 
   .source-page {
-    width: 380px;
-    padding-inline: 30px;
+    width: 100%;
+    min-width: 0;
+    min-height: 470px;
+    padding: 26px 22px;
+  }
+
+  .drawer-header {
+    gap: 10px;
+    padding: 13px 14px;
+  }
+
+  .drawer-header h2 {
+    white-space: normal;
+  }
+
+  .viewer-toolbar {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px 9px;
+  }
+
+  .drawer-footer {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .drawer-footer .button {
+    width: 100%;
   }
 
   .upload-footer {

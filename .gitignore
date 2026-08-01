@@ -29,3 +29,7 @@ uploads/
 *.log
 
 project_docs/
+# backend/
+# DataSet YGC26/
+# docs/
+# .tmp_docx_read/
