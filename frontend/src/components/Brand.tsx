@@ -13,13 +13,13 @@ export function Brand({
     <Link
       to="/"
       className={cx("brand", inverse && "brand-inverse")}
-      aria-label="ChartHarbor AI home"
+      aria-label="MediTrace AI home"
     >
       <span className="brand-mark" aria-hidden="true">
         <Anchor size={compact ? 17 : 20} strokeWidth={2.2} />
       </span>
       <span className={compact ? "text-base" : "text-lg"}>
-        ChartHarbor <span>AI</span>
+        MediTrace <span>AI</span>
       </span>
     </Link>
   );

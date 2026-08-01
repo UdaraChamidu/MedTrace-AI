@@ -45,7 +45,7 @@ export function LandingPage() {
               <em>Every claim anchored.</em>
             </h1>
             <p>
-              ChartHarbor AI brings prescriptions, lab reports, and clinical notes into one
+              MediTrace AI brings prescriptions, lab reports, and clinical notes into one
               navigable timeline—then shows the exact source behind every finding.
             </p>
             <div className="hero-actions">
