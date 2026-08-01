@@ -13,7 +13,7 @@ const wait = (duration = 280) => new Promise((resolve) => window.setTimeout(reso
 
 function readLocalPatients() {
   try {
-    const raw = window.localStorage.getItem("chartharbor-patients");
+    const raw = window.localStorage.getItem("medtrace-patients");
     return raw ? (JSON.parse(raw) as Patient[]) : starterPatients;
   } catch {
     return starterPatients;
@@ -55,7 +55,7 @@ export class DemoAdapter implements MedTraceAdapter {
       status: "Ready",
     };
     const patients = [patient, ...readLocalPatients()];
-    window.localStorage.setItem("chartharbor-patients", JSON.stringify(patients));
+    window.localStorage.setItem("medtrace-patients", JSON.stringify(patients));
     return patient;
   }
 }
@@ -117,8 +117,8 @@ export class SupabaseAdapter implements MedTraceAdapter {
 export function createDataAdapter(): MedTraceAdapter {
   const url = import.meta.env.VITE_SUPABASE_URL;
   const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
-  const forceDemo = import.meta.env.VITE_DEMO_MODE !== "false";
-  if (!forceDemo && url && key) return new SupabaseAdapter(createClient(url, key));
+  const dataMode = import.meta.env.VITE_DATA_MODE ?? "demo";
+  if (dataMode === "supabase" && url && key) return new SupabaseAdapter(createClient(url, key));
   return new DemoAdapter();
 }
 
