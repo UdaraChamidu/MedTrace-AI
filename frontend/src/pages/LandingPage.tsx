@@ -69,67 +69,71 @@ export function LandingPage() {
             </div>
           </div>
 
-          <div className="hero-product" role="img" aria-label="Product preview">
-            <div className="preview-chrome">
-              <span />
-              <span />
-              <span />
-              <small>Record overview · Maya Fernando</small>
-            </div>
-            <div className="preview-body">
-              <div className="preview-sidebar">
-                <div className="preview-logo" />
-                {[1, 2, 3, 4, 5].map((item) => (
-                  <div key={item} className="preview-nav-line" />
-                ))}
+          <div className="hero-product hero-document-stack" role="img" aria-label="Layered medical records with an anchored finding">
+            <article className="record-paper record-paper-discharge">
+              <div className="paper-head">
+                <span>Discharge note</span>
+                <small>2023 · p. 3</small>
               </div>
-              <div className="preview-main">
-                <div className="preview-title-row">
-                  <div>
-                    <span className="preview-eyebrow" />
-                    <span className="preview-title" />
-                  </div>
-                  <span className="preview-button" />
-                </div>
-                <div className="preview-metrics">
-                  <div>
-                    <strong>12</strong>
-                    <span>Documents</span>
-                  </div>
-                  <div>
-                    <strong>6</strong>
-                    <span>Visits</span>
-                  </div>
-                  <div>
-                    <strong>4</strong>
-                    <span>Review items</span>
-                  </div>
-                </div>
-                <div className="preview-grid">
-                  <div className="preview-timeline">
-                    <p>Record timeline</p>
-                    {[["2019", "Allergy documented"], ["2023", "Medication change"], ["2025", "Lab trend"]].map(
-                      ([year, label]) => (
-                        <div className="preview-event" key={year}>
-                          <span>{year}</span>
-                          <i />
-                          <div>
-                            <strong>{label}</strong>
-                            <small>Evidence verified</small>
-                          </div>
-                        </div>
-                      ),
-                    )}
-                  </div>
-                  <div className="preview-finding">
-                    <span className="preview-risk">High-risk review</span>
-                    <h3>Earlier allergy and later prescription</h3>
-                    <p>Two record pages may contain a contradiction.</p>
-                    <div className="preview-evidence">
-                      <Check size={13} /> 2 source pages anchored
-                    </div>
-                  </div>
-                </div>
+              <strong>Medication changed</strong>
+              <p>Follow-up instructions recorded</p>
+              <i />
+              <i className="short" />
+            </article>
+
+            <article className="record-paper record-paper-lab">
+              <div className="paper-head">
+                <span>Lab report</span>
+                <small>2025 ? p. 1</small>
+              </div>
+              <strong>HbA1c 8.1%</strong>
+              <p>Reference target below 7.0%</p>
+              <i />
+              <i />
+              <i className="short" />
+            </article>
+
+            <article className="record-paper record-paper-allergy">
+              <div className="paper-head">
+                <span>Allergy note</span>
+                <small>2019 ? p. 1</small>
+              </div>
+              <strong>Aspirin allergy</strong>
+              <p>Rash and facial swelling documented</p>
+              <mark>Source snippet anchored</mark>
+              <i />
+              <i className="short" />
+            </article>
+
+            <article className="record-paper record-paper-script">
+              <div className="paper-head">
+                <span>Prescription</span>
+                <small>2024 ? p. 1</small>
+              </div>
+              <strong>Aspirin 75 mg</strong>
+              <p>Once daily for 30 days</p>
+              <i />
+              <i />
+              <i className="short" />
+            </article>
+
+            <article className="record-paper record-paper-note">
+              <div className="paper-head">
+                <span>Visit summary</span>
+                <small>2024 ? p. 2</small>
+              </div>
+              <strong>Warfarin continue</strong>
+              <p>Medication list reviewed</p>
+              <i />
+              <i className="short" />
+            </article>
+
+            <div className="evidence-float-card">
+              <span className="preview-risk">High-risk review</span>
+              <h3>Aspirin appears after an earlier allergy</h3>
+              <p>Two patient-owned source pages support this review candidate.</p>
+              <div className="preview-evidence">
+                <Check size={13} /> 2 source pages anchored
               </div>
             </div>
           </div>

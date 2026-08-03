@@ -425,17 +425,163 @@ blockquote {
 .hero-product {
   position: relative;
   z-index: 2;
-  width: min(735px, 50vw);
-  min-width: 590px;
+  width: min(700px, 48vw);
+  min-width: 560px;
+  height: 520px;
   justify-self: start;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.17);
-  border-radius: 18px;
-  background: #f7f9f9;
+  overflow: visible;
   color: var(--ink);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.36);
-  transform: translateX(-22px) perspective(1400px) rotateY(-4deg) rotateX(1deg);
+  transform: translateX(-18px);
   transform-origin: left center;
+}
+
+.hero-document-stack {
+  isolation: isolate;
+}
+
+.record-paper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  min-height: 235px;
+  border: 1px solid rgba(232, 244, 244, 0.9);
+  border-radius: 16px;
+  padding: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 252, 251, 0.98)),
+    repeating-linear-gradient(180deg, transparent 0 28px, rgba(20, 67, 76, 0.06) 29px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.26);
+}
+
+.record-paper::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(22, 137, 133, 0.1), transparent 42%);
+  content: "";
+  pointer-events: none;
+}
+
+.paper-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid #e3ecec;
+  padding-bottom: 12px;
+  color: #5e7379;
+  font-size: 0.68rem;
+  font-weight: 760;
+}
+
+.paper-head small {
+  color: #8a9a9f;
+  font-size: 0.58rem;
+  font-weight: 700;
+}
+
+.record-paper strong {
+  margin-top: 22px;
+  color: #0f2f38;
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.record-paper p {
+  margin-top: 8px;
+  color: #63767b;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.record-paper mark {
+  width: fit-content;
+  margin-top: 15px;
+  border-radius: 999px;
+  padding: 6px 9px;
+  background: #fff1bd;
+  color: #7d5b18;
+  font-size: 0.58rem;
+  font-weight: 760;
+}
+
+.record-paper i {
+  display: block;
+  height: 7px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: #dfe9e9;
+}
+
+.record-paper i.short {
+  width: 64%;
+}
+
+.record-paper-lab {
+  top: 22px;
+  right: 24px;
+  z-index: 1;
+  transform: rotate(5deg);
+}
+
+.record-paper-discharge {
+  top: 0;
+  left: 150px;
+  z-index: 0;
+  transform: rotate(-3deg);
+  opacity: 0.96;
+}
+
+.record-paper-allergy {
+  top: 92px;
+  left: 10px;
+  z-index: 2;
+  transform: rotate(-7deg);
+}
+
+.record-paper-script {
+  top: 165px;
+  right: 80px;
+  z-index: 3;
+  transform: rotate(2deg);
+}
+
+.record-paper-note {
+  top: 255px;
+  left: 105px;
+  z-index: 2;
+  transform: rotate(-2deg);
+}
+
+.evidence-float-card {
+  position: absolute;
+  right: 10px;
+  bottom: 26px;
+  z-index: 5;
+  width: 292px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 28px 80px rgba(1, 19, 27, 0.34);
+}
+
+.evidence-float-card h3 {
+  margin-top: 12px;
+  color: #17333b;
+  font-family: Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.22;
+}
+
+.evidence-float-card p {
+  margin-top: 8px;
+  color: #687b80;
+  font-size: 0.68rem;
+  line-height: 1.45;
 }
 
 .preview-chrome {
