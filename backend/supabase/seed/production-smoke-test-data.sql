@@ -12,7 +12,7 @@ begin;
 
 do $$
 declare
-  owner_uuid uuid := 'PUT_AUTH_USER_UUID_HERE';
+  owner_uuid uuid := '480b9cf7-bce2-403f-99e9-baa0fde3fd98';
   patient_uuid uuid := '00000000-0000-4000-8000-000000000001';
   allergy_doc_uuid uuid := '00000000-0000-4000-8000-000000000201';
   prescription_doc_uuid uuid := '00000000-0000-4000-8000-000000000202';
