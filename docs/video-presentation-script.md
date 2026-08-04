@@ -5,6 +5,22 @@ is written so you can read it naturally while showing the deployed app.
 
 Recommended final video length: 4 minutes 30 seconds.
 
+## Production demo links
+
+Use these links while recording so you can jump directly to each part of the
+deployed app:
+
+| Screen | Production URL |
+| --- | --- |
+| Landing page | https://med-trace-ai-frontend.vercel.app/ |
+| Patient workspaces | https://med-trace-ai-frontend.vercel.app/patients |
+| Demo patient overview | https://med-trace-ai-frontend.vercel.app/patients/competition-case |
+| Timeline tab | https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=timeline |
+| Medications tab | https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=medications |
+| Labs tab | https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=labs |
+| Findings tab | https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=findings |
+| Ask tab | https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=ask |
+
 ## Submission positioning
 
 For Round 1, present MedTrace AI as:
@@ -26,10 +42,10 @@ has been implemented and tested end to end.
 
 Open these in advance:
 
-1. Vercel deployed app.
-2. The patient demo dashboard.
-3. Findings tab.
-4. Ask tab.
+1. Landing page: https://med-trace-ai-frontend.vercel.app/
+2. Patient demo dashboard: https://med-trace-ai-frontend.vercel.app/patients/competition-case
+3. Findings tab: https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=findings
+4. Ask tab: https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=ask
 5. Optional: Supabase table view showing tables.
 6. Optional: n8n workflows list showing imported workflows.
 
@@ -58,6 +74,12 @@ This gives the smoothest Round 1 recording.
 
 Show: MedTrace AI landing page.
 
+Open:
+
+```text
+https://med-trace-ai-frontend.vercel.app/
+```
+
 Say:
 
 > Medical information is often fragmented across prescriptions, laboratory
@@ -70,6 +92,12 @@ Say:
 ### 0:25-0:50 - Solution
 
 Show: Click `Open demo` or `Explore the synthetic case`.
+
+Direct link if needed:
+
+```text
+https://med-trace-ai-frontend.vercel.app/patients
+```
 
 Say:
 
@@ -84,6 +112,12 @@ Say:
 
 Show: Patient dashboard overview.
 
+Open:
+
+```text
+https://med-trace-ai-frontend.vercel.app/patients/competition-case
+```
+
 Say:
 
 > This is the patient workspace. The dashboard shows the number of source
@@ -92,6 +126,12 @@ Say:
 > easier to review and to show where each finding came from.
 
 Show: Timeline tab.
+
+Open:
+
+```text
+https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=timeline
+```
 
 Say:
 
@@ -102,6 +142,12 @@ Say:
 ### 1:25-2:05 - Findings and evidence
 
 Show: Findings tab. Open a high-risk finding.
+
+Open:
+
+```text
+https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=findings
+```
 
 Say:
 
@@ -122,6 +168,12 @@ Say:
 ### 2:05-2:35 - Ask the record
 
 Show: Ask tab.
+
+Open:
+
+```text
+https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=ask
+```
 
 Ask/click a sample supported question, such as:
 
@@ -260,15 +312,15 @@ Use this if the video needs to be tighter.
 
 Use this while recording:
 
-1. Open deployed app.
+1. Open deployed app: https://med-trace-ai-frontend.vercel.app/
 2. Click `Open demo`.
-3. Open the patient walkthrough.
+3. Open the patient walkthrough: https://med-trace-ai-frontend.vercel.app/patients/competition-case
 4. Show overview metrics.
-5. Open Timeline tab.
-6. Open Findings tab.
+5. Open Timeline tab: https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=timeline
+6. Open Findings tab: https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=findings
 7. Click the aspirin/allergy finding.
 8. Open evidence.
-9. Open Ask tab.
+9. Open Ask tab: https://med-trace-ai-frontend.vercel.app/patients/competition-case?tab=ask
 10. Ask supported question.
 11. Ask unsupported question.
 12. Close with architecture/impact.
@@ -296,4 +348,3 @@ pipeline is already complete unless it is actually implemented and tested.
 - `docs/MedTrace_AI_Technical_Summary.docx`: editable technical summary.
 - `docs/final-production-test-plan.md`: production test checklist.
 - `docs/full-system-implementation-plan.md`: next implementation roadmap.
-
