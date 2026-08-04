@@ -68,6 +68,203 @@ This gives the smoothest Round 1 recording.
 | 3:35-4:10 | Current status and next implementation | Explain live backend roadmap |
 | 4:10-4:30 | Impact and close | Return to dashboard or landing |
 
+## Recommended shorter 4-5 minute script
+
+Use this version for the final competition video. It is shorter than the full
+script, but still covers the problem, demo, technical stack, current backend
+status, and future implementation plan.
+
+### 0:00-0:25 - Introduction and problem 
+
+Show: landing page.
+
+Say:
+
+> Hi, this is MedTrace AI, an evidence-linked medical record intelligence
+> platform. The problem we are solving is that medical information is often
+> scattered across prescriptions, lab reports, discharge notes, and clinical
+> documents. When those documents are reviewed separately, it is easy to miss an
+> earlier allergy, a repeated medication, a lab trend, or a safety issue that
+> only becomes clear across multiple records.
+
+### 0:25-0:55 - Product idea
+
+Show: click `Open demo` or open the patient dashboard.
+
+Say:
+
+> MedTrace AI brings those records into one patient workspace. It creates a
+> timeline, highlights possible review items, explains lab trends, and supports
+> question answering across the record. The most important part is evidence:
+> every key claim is connected to a source document, page, snippet, and
+> confidence score.
+
+### 0:55-1:40 - Dashboard and timeline demo
+
+Show: patient overview, then Timeline tab.
+
+Say:
+
+> This is the demo patient workspace. At the top, we can see a summary of the
+> source documents, timeline events, evidence coverage, and review items. The
+> timeline organizes visits, allergies, medication changes, and lab results in
+> chronological order. This helps the reviewer understand the patient story
+> across documents, instead of reading each file in isolation.
+
+### 1:40-2:25 - Findings and evidence demo
+
+Show: Findings tab and open a finding/evidence drawer.
+
+Say:
+
+> In the Findings tab, MedTrace AI shows possible items for review. For example,
+> this demo case shows a possible conflict where aspirin appears after an
+> earlier aspirin allergy. The system separates risk from confidence. Risk tells
+> us how important the item may be if confirmed. Confidence tells us how strongly
+> the available evidence supports it.
+>
+> When I open the evidence, I can see the exact source context. This is the main
+> value of MedTrace AI: it does not only show an AI answer; it shows where that
+> answer came from.
+
+### 2:25-3:00 - Ask the record demo
+
+Show: Ask tab.
+
+Say:
+
+> The Ask tab lets a reviewer ask questions across the whole patient record. A
+> supported question returns an answer with citations. If the documents do not
+> contain enough evidence, the system gives an insufficient-evidence response
+> instead of guessing. This is important because medical record review needs
+> traceability and caution.
+
+### 3:00-3:50 - Technical implementation
+
+Show: app, Supabase, or n8n workflow list.
+
+Say:
+
+> Technically, the frontend is built with React, TypeScript, Vite, Tailwind CSS,
+> TanStack Query, and Recharts. Supabase is used for Auth, PostgreSQL, private
+> file storage, Row Level Security, Realtime job updates, and pgvector for
+> retrieval.
+>
+> The backend architecture uses n8n as the workflow orchestrator. The project
+> includes workflow templates for document processing, medication normalization,
+> lab normalization, medication reconciliation, lab trends, safety rules,
+> evidence verification, record Q&A, and error handling. OpenAI is planned for
+> document understanding, structured extraction, embeddings, evidence
+> verification, and grounded explanations.
+
+### 3:50-4:25 - Current status and next steps
+
+Show: dashboard or n8n workflows.
+
+Say:
+
+> For Round 1, the public demo is deployed and stable using a synthetic
+> evidence-linked case. Supabase tables, security policies, n8n workflow exports,
+> environment configuration, and webhook tests are prepared. The next
+> implementation phase is the full live pipeline: upload a file to private
+> Supabase Storage, trigger n8n, run AI extraction, write structured results
+> back to Supabase, and show the real timeline, findings, evidence, and Q&A
+> inside the frontend.
+
+### 4:25-4:40 - Closing
+
+Show: landing page or evidence drawer.
+
+Say:
+
+> MedTrace AI is not a diagnostic or prescribing system. It helps users review
+> fragmented records more safely by keeping every record in view and every claim
+> anchored to evidence.
+
+## Final 3-minute recording script
+
+Use this version if the presentation must be around 3 minutes. This is the best
+version for a short Round 1 video.
+
+### 0:00-0:25 - Problem
+
+Show: landing page.
+
+Say:
+
+> Hi, this is MedTrace AI, an evidence-linked medical record intelligence
+> platform. Medical records are often scattered across prescriptions, lab
+> reports, discharge summaries, and clinical notes. When these documents are
+> reviewed separately, important details like allergies, medication conflicts,
+> or lab trends can be missed.
+
+### 0:25-0:50 - Solution
+
+Show: click `Open demo`.
+
+Say:
+
+> MedTrace AI brings those documents into one patient workspace. It creates a
+> timeline, highlights possible review items, supports record-level questions,
+> and connects every important claim to source evidence: the document, page,
+> snippet, and confidence score.
+
+### 0:50-1:30 - Dashboard and timeline
+
+Show: patient dashboard, then Timeline tab.
+
+Say:
+
+> This is the demo patient workspace. The dashboard summarizes the documents,
+> timeline events, evidence coverage, and review items. The timeline arranges
+> visits, allergies, medications, and lab results in chronological order, so the
+> reviewer can understand the patient story across multiple records.
+
+### 1:30-2:05 - Findings and evidence
+
+Show: Findings tab and open one evidence item.
+
+Say:
+
+> In the Findings tab, the system shows possible issues for review, such as a
+> medication appearing after an earlier allergy. Risk and confidence are shown
+> separately. When I open the evidence, I can see the exact source context. This
+> is the core idea of MedTrace AI: not just an AI result, but a traceable result.
+
+### 2:05-2:30 - Ask tab
+
+Show: Ask tab.
+
+Say:
+
+> The Ask tab lets a reviewer ask questions across the record. If the answer is
+> supported, MedTrace AI shows citations. If the documents do not contain enough
+> evidence, it returns an insufficient-evidence response instead of guessing.
+
+### 2:30-2:50 - Technical stack
+
+Show: app, Supabase, or n8n workflows.
+
+Say:
+
+> The frontend uses React, TypeScript, Vite, Tailwind CSS, TanStack Query, and
+> Recharts. Supabase provides Auth, PostgreSQL, private Storage, Row Level
+> Security, Realtime, and pgvector. n8n is used as the backend workflow
+> orchestrator, and OpenAI is planned for document extraction, embeddings,
+> evidence verification, and grounded Q&A.
+
+### 2:50-3:05 - Status and close
+
+Show: dashboard or landing page.
+
+Say:
+
+> For Round 1, the deployed demo is stable with a synthetic evidence-linked
+> case. Supabase tables and n8n workflow templates are prepared. The next step
+> is the full live pipeline from private upload to AI extraction and real
+> dashboard results. MedTrace AI is not a diagnostic system; it helps users
+> review records with every claim anchored to evidence.
+
 ## Full spoken script
 
 ### 0:00-0:25 - Problem
