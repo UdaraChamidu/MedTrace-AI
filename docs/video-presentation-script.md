@@ -82,7 +82,7 @@ https://med-trace-ai-frontend.vercel.app/
 
 Say:
 
-> Medical information is often fragmented across prescriptions, laboratory
+> Medical information is often fragmented across , laboratory
 > reports, discharge summaries, and clinical notes. A patient may have records
 > from different visits and different providers, but the important safety story
 > is usually spread across multiple documents. That makes it easy to miss an
